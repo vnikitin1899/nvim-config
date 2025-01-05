@@ -8,7 +8,6 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
-  use { 'embark-theme/vim', as = 'embark' }
   use { "catppuccin/nvim", as = "catppuccin" }
   use {
     "lukas-reineke/indent-blankline.nvim"
@@ -37,20 +36,13 @@ packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim"
   use "MunifTanjim/prettier.nvim"
   use "lewis6991/gitsigns.nvim"
+  use "sindrets/diffview.nvim"
   use {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
-
-      -- Only one of these is needed.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua",              -- optional
-      "echasnovski/mini.pick",         -- optional
-    },
-    config = true
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" }
   }
-  use "nvim-tree/nvim-tree.lua"
+  use "terrortylor/nvim-comment"
 end)
 
+require("nvim_comment").setup()
 
